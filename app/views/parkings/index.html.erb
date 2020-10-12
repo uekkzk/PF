@@ -1,0 +1,8 @@
+<h1>パーキング一覧</h1>
+
+<% @parkings.each do |p| %>
+<%= p.parking_name %>
+<%= p.address %>
+<%= p.regular_holiday %>
+<%= p.fee %>
+<% end %>

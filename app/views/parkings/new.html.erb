@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+
+      <h1>パーキング投稿</h1>
+
+      <%= form_for(@parking, url: parkings_path) do |f| %>
+
+      <div class="">
+      <%= f.label :"パーキング名" %>
+      <%= f.text_field :parking_name %>
+      </div>
+
+      <div class="">
+      <%= f.label :"住所" %>
+      <%= f.text_field :address %>
+      </div>
+
+      <div class="">
+      <%= f.label :"定休日" %>
+      <%= f.text_field :regular_holiday %>
+      </div>
+
+      <div class="">
+      <%= f.label :"料金" %>
+      <%= f.text_field :fee %>
+      </div>
+
+     <!--  <div class="">
+      <%= f.label :"画像" %>
+      <%= f.attachment_field :image %>
+      </div> -->
+
+      <div class="">
+      <%= f.submit "投稿" %>
+      </div>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>

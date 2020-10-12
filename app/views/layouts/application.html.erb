@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bikenavi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header style = "height:80px;border-bottom:1px solid black;background-color:black;">
+      <div class="collapse navbar-collapse" id="bs-navi">
+      <ul class="navbar-nav ml-auto">
+     <% if user_signed_in? %>
+        <li class = "nav-item mr-5 ml-5">
+          <%= link_to "ロゴ", root_path, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "マイページ", user_path(current_user), class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "パーキング一覧", parkings_path, class: "btn btn-info" %>
+        </li>
+     <% else %>
+        <li class = "nav-item mr-5 ml-5">
+          <%= link_to "ロゴ", root_path, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "about", home_about_path, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "パーキング一覧", parkings_path, class: "btn btn-info" %>
+        </li>
+      <% end %>
+    </ul>
+  </header>
+
+    <%= yield %>
+  </body>
+</html>
