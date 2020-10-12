@@ -1,24 +1,29 @@
-# README
+# ばいくなび
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+バイクの駐輪場の場所をみんなが投稿することにより、様々な場所の駐輪場がひと目で分かるようになる。
+そうすれば初めて行く場所でも、駐輪場があるかないか、あれば場所はどこにあるのかがわかるとともに、移動手段の一つとしてバイクを選択することができるようになると思う。
 
-Things you may want to cover:
+### サイトテーマ
+バイクの駐輪場
 
-* Ruby version
+### テーマを選んだ理由
+自分がバイクに乗っていて、日本にはバイクの駐輪場が少ないと感じるため。
 
-* System dependencies
+### ターゲットユーザ
+バイクに乗っている人、これからバイクに乗りたい人
 
-* Configuration
+### 主な利用シーン
+出かける際、バイクの駐輪場の場所がわからない時などに使って欲しい
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1ygbI3RJBmzcjpYDe5e4Ju0iYcAWKe-Umo_s3YRxHn_Y/edit#gid=0
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
