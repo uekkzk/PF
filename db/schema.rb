@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_072104) do
+ActiveRecord::Schema.define(version: 2020_10_14_060148) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2020_10_10_072104) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "parking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_id"], name: "index_favorites_on_parking_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "parkings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "parking_name", null: false
@@ -45,6 +54,14 @@ ActiveRecord::Schema.define(version: 2020_10_10_072104) do
     t.string "regular_holiday", null: false
     t.integer "fee", null: false
     t.string "image_id"
+    t.integer "prefecture", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_072104) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "bike_name"
     t.boolean "is_active", default: true
     t.string "name", null: false
     t.string "introduction"

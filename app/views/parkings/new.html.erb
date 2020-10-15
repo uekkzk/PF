@@ -12,6 +12,11 @@
       </div>
 
       <div class="">
+      <%= f.label :"都道府県" %>
+      <%= f.select :prefecture, Parking.prefectures.keys %>
+      </div>
+
+      <div class="">
       <%= f.label :"住所" %>
       <%= f.text_field :address %>
       </div>

@@ -7,6 +7,7 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.string :regular_holiday, null: false
       t.integer :fee, null: false
       t.string :image_id
+      t.integer :prefecture, null: false, default: 0
 
       t.timestamps
     end

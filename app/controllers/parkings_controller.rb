@@ -1,6 +1,10 @@
 class ParkingsController < ApplicationController
   def index
-    @parkings = Parking.all
+    @parkings = if params[:prefecture]
+      Parking.where(prefecture: params[:prefecture])
+    else
+      Parking.all
+    end
   end
 
   def new
@@ -31,6 +35,6 @@ class ParkingsController < ApplicationController
 
   private
   def parking_params
-    params.require(:parking).permit(:parking_name, :address, :regular_holiday, :fee, :image)
+    params.require(:parking).permit(:parking_name, :address, :regular_holiday, :fee, :image, :prefecture)
   end
 end

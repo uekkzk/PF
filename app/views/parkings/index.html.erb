@@ -5,4 +5,13 @@
 <%= p.address %>
 <%= p.regular_holiday %>
 <%= p.fee %>
+<% if p.favorited_by?(current_user) %>
+              <%= link_to parking_favorites_path(p), method: :delete do %>
+              <i class="fas fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to parking_favorites_path(p), method: :post do %>
+              <i class="far fa-heart"></i>
+              <% end %>
+            <% end %>
 <% end %>
