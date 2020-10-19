@@ -16,8 +16,12 @@
 <nav class="navbar navbar-expand-md navbar-dark">
      <% if user_signed_in? %>
         <li class = "nav-item mr-5 ml-5">
-          <%= link_to "ロゴ", root_path, class: "btn btn-info" %>
+          <%= link_to image_tag("/assets/bikelogo.jpg", size: '100x70'), root_path %>
         </li>
+
+
+
+
         <li class = "nav-item ml-5">
           <%= link_to "マイページ", user_path(current_user), class: "btn btn-info" %>
         </li>
@@ -26,6 +30,9 @@
         </li>
         <li class = "nav-item ml-5">
           <%= link_to "パーキング投稿", new_parking_path, class: "btn btn-info" %>
+        </li>
+        <li class = "nav-item ml-5">
+          <%= link_to "お気に入りパーキング一覧", favorites_path, class: "btn btn-info" %>
         </li>
      <% else %>
         <li class = "nav-item mr-5 ml-5">
@@ -38,7 +45,7 @@
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-info" %>
         </li>
         <li class = "nav-item ml-5">
-          <%= link_to "パーキング一覧", parkings_path, class: "btn btn-info" %>
+          <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-info" %>
         </li>
       <% end %>
     </nav>

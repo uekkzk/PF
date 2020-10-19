@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :parkings do
     resource :favorites, only: [:create, :destroy]
   end
+  resources :favorites, only: [:index]
   root 'home#top'
   get 'home/about'
 

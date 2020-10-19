@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_10_14_060148) do
     t.integer "fee", null: false
     t.string "image_id"
     t.integer "prefecture", default: 0, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

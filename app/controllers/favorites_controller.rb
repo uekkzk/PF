@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorites = current_user.favorite_parkings
+  end
+
   def create
     @parking =  Parking.find(params[:parking_id])
     @favorite = Favorite.new(user_id: current_user.id, parking_id: @parking.id)

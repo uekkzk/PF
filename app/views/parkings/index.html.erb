@@ -1,17 +1,76 @@
-<h1>パーキング一覧</h1>
+<div class="container">
 
-<% @parkings.each do |p| %>
-<%= p.parking_name %>
-<%= p.address %>
-<%= p.regular_holiday %>
-<%= p.fee %>
-<% if p.favorited_by?(current_user) %>
-              <%= link_to parking_favorites_path(p), method: :delete do %>
-              <i class="fas fa-heart"></i>
-              <% end %>
-            <% else %>
-              <%= link_to parking_favorites_path(p), method: :post do %>
-              <i class="far fa-heart"></i>
-              <% end %>
+         <script src="https://maps.googleapis.com/maps/api/js?key=ENV['GOOGLE_MAP_API_KEY']&callback=initMap" async defer>
+         </script>
+
+         <script>
+          function initMap(){
+
+            <% @parkings.each do |p| %>
+
+              new google.maps.Map(document.getElementById("map_<%= p.id %>"), {
+                center: {lat: <%=p.latitude%>, lng: <%=p.longitude%>},
+                zoom: 15
+              });
+
             <% end %>
+          }
+        </script>
+
+    <h1><%= params[:prefecture] %>のパーキング一覧</h1>
+
+    <%= search_form_for @search, url: parkings_path do |f| %>
+  <%= f.search_field :parking_name_or_address_or_regular_holiday_or_fee_cont %>
+  <%= f.submit '検索' %>
 <% end %>
+
+
+  <% @parkings.each do |p| %>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="">
+        <div class="map" id="map_<%= p.id %>"></div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-4">
+        <%= p.parking_name %>
+      </div>
+
+      <div class="mb-4">
+        <%= p.address %>
+      </div>
+
+      <div class="mb-4">
+        <%= p.regular_holiday %>
+      </div>
+
+      <div class="mb-4">
+        <%= p.fee %>
+      </div>
+
+      <div class="">
+        <% if p.favorited_by?(current_user) %>
+          <%= link_to parking_favorites_path(p), method: :delete do %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to parking_favorites_path(p), method: :post do %>
+          <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+　　　　 <style>
+        .map{
+          height: 300px;
+          width: 500px;
+        }
+        </style>

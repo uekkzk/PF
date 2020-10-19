@@ -8,6 +8,8 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.integer :fee, null: false
       t.string :image_id
       t.integer :prefecture, null: false, default: 0
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

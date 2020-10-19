@@ -16,6 +16,9 @@ class Parking < ApplicationRecord
      沖縄県:47
    }
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

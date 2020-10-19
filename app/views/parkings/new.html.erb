@@ -1,45 +1,59 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-5">
 
-      <h1>パーキング投稿</h1>
+      <h1 class="mt-4">パーキング投稿</h1>
 
       <%= form_for(@parking, url: parkings_path) do |f| %>
 
-      <div class="">
-      <%= f.label :"パーキング名" %>
-      <%= f.text_field :parking_name %>
+
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.label "パーキング名" %>
+        </div>
+        <div class = "col-md-8">
+          <%= f.text_field :parking_name, placeholder: "例)◯◯パーキング" %>
+        </div>
       </div>
 
-      <div class="">
-      <%= f.label :"都道府県" %>
-      <%= f.select :prefecture, Parking.prefectures.keys %>
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.label "都道府県" %>
+        </div>
+        <div class = "col">
+          <%= f.select :prefecture, Parking.prefectures.keys %>
+        </div>
       </div>
 
-      <div class="">
-      <%= f.label :"住所" %>
-      <%= f.text_field :address %>
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.label "住所" %>
+        </div>
+        <div class = "col-md-8">
+          <%= f.text_field :address, placeholder: "例)◯◯市◯◯区◯◯番地" %>
+        </div>
       </div>
 
-      <div class="">
-      <%= f.label :"定休日" %>
-      <%= f.text_field :regular_holiday %>
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.label "定休日" %>
+        </div>
+        <div class = "col-md-8">
+          <%= f.text_field :regular_holiday, placeholder: "例)年中無休" %>
+        </div>
       </div>
 
-      <div class="">
-      <%= f.label :"料金" %>
-      <%= f.text_field :fee %>
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.label "料金" %>
+        </div>
+        <div class = "col-md-8">
+          <%= f.text_field :fee, placeholder: "例)100円/60分、最大600円/24H" %>
+        </div>
       </div>
 
-     <!--  <div class="">
-      <%= f.label :"画像" %>
-      <%= f.attachment_field :image %>
-      </div> -->
-
-      <div class="">
-      <%= f.submit "投稿" %>
-      </div>
-
+      <div class = "row mb-2">
+        <div class = "col-md-2">
+          <%= f.submit "投稿" %>
+        </div>
 
       <% end %>
     </div>

@@ -5,6 +5,10 @@ class ParkingsController < ApplicationController
     else
       Parking.all
     end
+
+    @search = Parking.ransack(params[:q])
+    @parking = @search.result
+
   end
 
   def new
