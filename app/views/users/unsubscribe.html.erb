@@ -1,6 +1,19 @@
-<h1>本当に退会しますか？</h1>
 
+<div class="user-container">
 
+    <h1 class="confirm">下記ボタンを押すと退会手続きを実行します。<br>
+    登録されている情報は全て削除されますがよろしいでしょうか？</h1>
 
-<%= link_to "やめとく", user_path(@user) %>
-<%= link_to "退会する！", user_registration_path, method: :delete %>
+    <div class="button-container">
+      <div class="yes button">
+        <%= link_to "はい、退会します", user_registration_path, method: :delete %>
+      </div>
+
+      <div class="no button">
+        <%= link_to "いいえ、退会しません", user_path(@user) %>
+      </div>
+    </div>
+
+  </div>
+
+</div>

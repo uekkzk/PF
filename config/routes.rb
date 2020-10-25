@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   get 'users/unsubscribe' => "users#unsubscribe"
-  get "users/is_active" => "users#is_active"
-  
 
   resources :parkings do
     resource :favorites, only: [:create, :destroy]
   end
+  get "parkings_search" => "parkings#search"
   resources :favorites, only: [:index]
   root 'home#top'
   get 'home/about'

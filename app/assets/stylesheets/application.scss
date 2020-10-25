@@ -14,3 +14,97 @@
  *= require_self
  */
  @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 900;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header{
+  background-color: #ffd700;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+}
+
+ul{
+  list-style: none;
+  font-size: 15px;
+}
+
+header li a{
+  list-style: none;
+  text-decoration: none !important;
+  color: black !important;
+  font-family: "Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 900;
+  font-size: 30px;
+}
+
+html, body { height: 100%; }
+
+body{
+  position: relative;
+}
+
+footer {
+  position: absolute;
+
+  color:black;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  background-color: #ffd700;
+}
+
+.login-container{
+  height: 600px;
+  padding: 150px;
+  background-image: image-url("bike1.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  width: 100%;
+  height: 100%;
+}
+
+.login-title{
+  text-align: center;
+}
+
+.login-field{
+  text-align: center;
+}
+
+.actions{
+  text-align: center;
+}
+
+.signup-container{
+  height: 600px;
+  padding-top: 100px;
+  background-image: image-url("bike1.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  width: 100%;
+  height: 100%;
+}
+
+.signup-title{
+  text-align: center;
+}
+
+.signup-field{
+  text-align: center;
+}
+
+.error{
+  margin-left: 100px;
+}

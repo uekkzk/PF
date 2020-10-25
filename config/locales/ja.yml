@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      parking:
+        parking_name: パーキングの名前
+        address: 住所
+        regular_holiday: 定休日
+        fee: 料金
+        prefecture: 都道府県
+
+      user:
+        name: 名前
+        email: Eメール
+        password: パスワード

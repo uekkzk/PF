@@ -75,8 +75,11 @@ gem 'jquery-rails'
 gem "geocoder"
 
 gem 'dotenv-rails'
+
 group :production do
   gem 'mysql2'
 end
 
 gem 'ransack'
+
+gem 'rails-i18n'

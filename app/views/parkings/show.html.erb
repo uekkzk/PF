@@ -1,2 +1,80 @@
-<h1>Parkings#show</h1>
-<p>Find me in app/views/parkings/show.html.erb</p>
+<div style="background-color: lightyellow;">
+
+  <div class="container">
+
+    <div class="row pt-3">
+
+        <div class="col-md-6">
+          <div class="map" id="map_id"></div>
+        </div>
+
+
+        <div class="col-md-6">
+
+          <table class="table">
+            <tr>
+              <th>パーキング名</th>
+              <td><%= @parking.parking_name %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @parking.address %></td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td><%= @parking.regular_holiday %></td>
+            </tr>
+            <tr>
+              <th>料金</th>
+              <td><%= @parking.fee %></td>
+            </tr>
+            <tr>
+              <th>TEL</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>利用可能時間</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>車両制限</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>収容台数</th>
+              <td></td>
+            </tr>
+          </table>
+
+          <div class="parking-edit float-right">
+            <%= link_to "編集", edit_parking_path(@parking), class:"btn btn-success" %>
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function initMap(){
+
+      new google.maps.Map(document.getElementById("map_id"), {
+        center: {lat: <%=@parking.latitude%>, lng: <%=@parking.longitude%>},
+        zoom: 15
+      });
+  }
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
+ </script>
+
+<style>
+.map{
+  height: 300px;
+  width: 500px;
+}
+</style>

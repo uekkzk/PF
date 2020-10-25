@@ -1,63 +1,70 @@
 
-<div class="container">
-
-   <script>
-    function initMap(){
-
-      <% @favorites.each do |f| %>
-
-        new google.maps.Map(document.getElementById("map_<%= f.id %>"), {
-          center: {lat: <%=f.latitude%>, lng: <%=f.longitude%>},
-          zoom: 15
-        });
-
-      <% end %>
-    }
-  </script>
+<% if @favorites.empty? %>
+    <div class="favorite-empty" style="background-color: lightyellow">
+      <h1>お気に入りはありません</h1>
+    </div>
+<% else%>
+  <div class="favorite-container" style="background-color: lightyellow">
+    <div class="container">
+      <script>
+        function initMap(){
 
 
-  <% @favorites.each do |f| %>
+          <% @favorites.each do |f| %>
 
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <div class="">
-        <div class="map" id="map_<%= f.id %>"></div>
+            new google.maps.Map(document.getElementById("map_<%= f.id %>"), {
+              center: {lat: <%=f.latitude%>, lng: <%=f.longitude%>},
+              zoom: 15
+            });
 
+          <% end %>
+        }
+      </script>
+
+    <% @favorites.each do |f| %>
+
+    <div class="row pt-5">
+      <div class="col-md-6">
+        <div class="">
+          <div class="map" id="map_<%= f.id %>"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mt-5">
+        <div class="mb-4">
+          <%= f.parking_name %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.address %>
+        </div>
+
+        <div class="mb-4">定休日　　
+          <%= f.regular_holiday %>
+        </div>
+
+        <div class="mb-4">料金　　
+          <%= f.fee %>
+        </div>
+
+        <div class="">
+          <% if f.favorited_by?(current_user) %>
+            <%= link_to parking_favorites_path(f), method: :delete do %>
+            <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to parking_favorites_path(f), method: :post do %>
+            <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="mb-4">
-        <%= f.parking_name %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.address %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.regular_holiday %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.fee %>
-      </div>
-
-      <div class="">
-        <% if f.favorited_by?(current_user) %>
-          <%= link_to parking_favorites_path(f), method: :delete do %>
-          <i class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to parking_favorites_path(f), method: :post do %>
-          <i class="far fa-heart"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
+    <% end%>
   <% end %>
+  </div>
+</div>
 
 　<style>
     .map{
@@ -66,5 +73,6 @@
     }
   </style>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=ENV['GOOGLE_MAP_API_KEY']&callback=initMap" async defer>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
    </script>
+</div>

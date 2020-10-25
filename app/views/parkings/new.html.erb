@@ -1,61 +1,64 @@
-<div class="container">
+<div class="parking-new-container clearfix">
 
-      <h1 class="mt-4">パーキング投稿</h1>
+  <h1 class="parking-title">パーキング投稿</h1>
 
-      <%= form_for(@parking, url: parkings_path) do |f| %>
+  <%= form_for(@parking, url: parkings_path) do |f| %>
+
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div class="form-group"></div>
 
 
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.label "パーキング名" %>
-        </div>
-        <div class = "col-md-8">
-          <%= f.text_field :parking_name, placeholder: "例)◯◯パーキング" %>
-        </div>
-      </div>
-
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.label "都道府県" %>
-        </div>
-        <div class = "col">
-          <%= f.select :prefecture, Parking.prefectures.keys %>
-        </div>
-      </div>
-
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.label "住所" %>
-        </div>
-        <div class = "col-md-8">
-          <%= f.text_field :address, placeholder: "例)◯◯市◯◯区◯◯番地" %>
-        </div>
-      </div>
-
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.label "定休日" %>
-        </div>
-        <div class = "col-md-8">
-          <%= f.text_field :regular_holiday, placeholder: "例)年中無休" %>
-        </div>
-      </div>
-
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.label "料金" %>
-        </div>
-        <div class = "col-md-8">
-          <%= f.text_field :fee, placeholder: "例)100円/60分、最大600円/24H" %>
-        </div>
-      </div>
-
-      <div class = "row mb-2">
-        <div class = "col-md-2">
-          <%= f.submit "投稿" %>
-        </div>
-
-      <% end %>
+  <div class = "row mb-2">
+    <div class = "col-md-2 offset-md-2">
+      <%= f.label "パーキング名", class:"parking-contents" %>
+    </div>
+    <div class = "col-md-6">
+      <%= f.text_field :parking_name, placeholder: "例)◯◯パーキング" %>
     </div>
   </div>
+
+  <div class = "row mb-2">
+    <div class = "col-md-2 offset-md-2">
+      <%= f.label "都道府県", class:"parking-contents" %>
+    </div>
+    <div class = "col">
+      <%= f.select :prefecture, Parking.prefectures.keys %>
+    </div>
+  </div>
+
+  <div class = "row mb-2">
+    <div class = "col-md-2 offset-md-2">
+      <%= f.label "住所", class:"parking-contents" %>
+    </div>
+    <div class = "col-md-6">
+      <%= f.text_field :address, placeholder: "例)◯◯市◯◯区◯◯番地" %>
+    </div>
+  </div>
+
+  <div class = "row mb-2">
+    <div class = "col-md-2 offset-md-2">
+      <%= f.label "定休日", class:"parking-contents" %>
+    </div>
+    <div class = "col-md-6">
+      <%= f.text_field :regular_holiday, placeholder: "例)年中無休" %>
+    </div>
+  </div>
+
+  <div class = "row mb-4">
+    <div class = "col-md-2 offset-md-2">
+      <%= f.label "料金", class:"parking-contents" %>
+    </div>
+    <div class = "col-md-6">
+      <%= f.text_field :fee, placeholder: "例)100円/60分、最大600円/24H" %>
+    </div>
+  </div>
+
+  <div class = "row mb-2">
+    <div class = "col-md-2 parking-field">
+      <%= f.submit "投稿" %>
+    </div>
+  </div>
+
+  <% end %>
+
 </div>

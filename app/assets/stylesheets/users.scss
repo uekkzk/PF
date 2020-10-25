@@ -1,3 +1,109 @@
 // Place all the styles related to the show controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-container{
+  height: 600px;
+  padding-top: 50px;
+  background-image: image-url("bike2.jpg");
+  background-color:rgba(255,255,255,0.9);
+  background-blend-mode:lighten;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  height: 100%;
+  }
+
+.user-edit-field{
+  font-size: 20px;
+}
+
+.unsubscribe a{
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+.confirm{
+  line-height: 100px;
+  margin-top: 50px;
+}
+
+.button-container{
+  margin: 50px auto;
+  width: 250px;
+}
+
+.button a{
+  text-decoration: none;
+  color: #FFF;
+}
+
+.yes{
+  margin: 0 auto;
+  background-color: red;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.no{
+  margin-top: 30px;
+  background-color: grey;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.image-field{
+  border-radius: 50%;
+}
+
+.my-name{
+  font-size: 25px;
+  height: 50px;
+  line-height: 50px;
+  width: 100px;
+}
+
+.my-profile a{
+  text-decoration: none;
+  color: black;
+}
+
+.my-profile{
+  border: 1px solid;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  background-color: grey;
+}
+
+.relationship a{
+  text-decoration: none;
+  color: black;
+}
+
+.relationship{
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.my-bike{
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.my-introduction{
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+
+

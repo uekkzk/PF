@@ -1,72 +1,76 @@
-<div class="container">
+<div class="" style="background-color: lightyellow;">
+  <div class="container">
 
-         <script src="https://maps.googleapis.com/maps/api/js?key=ENV['GOOGLE_MAP_API_KEY']&callback=initMap" async defer>
-         </script>
+           <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
+           </script>
 
-         <script>
-          function initMap(){
+          <script>
+            function initMap(){
 
-            <% @parkings.each do |p| %>
+              <% @parkings.each do |p| %>
 
-              new google.maps.Map(document.getElementById("map_<%= p.id %>"), {
-                center: {lat: <%=p.latitude%>, lng: <%=p.longitude%>},
-                zoom: 15
-              });
+                new google.maps.Map(document.getElementById("map_<%= p.id %>"), {
+                  center: {lat: <%=p.latitude%>, lng: <%=p.longitude%>},
+                  zoom: 15
+                });
 
+              <% end %>
+            }
+          </script>
+
+  <% if params[:prefecture] %>
+      <h1 class="pt-5 pb-5"><%= params[:prefecture] %>のパーキング一覧</h1>
+  <% else %>
+      <h1 class="pt-5 mb-5"><%= params[:q][:parking_name_or_address_or_regular_holiday_or_fee_cont] %>の検索結果</h1>
+  <% end %>
+
+    <% @parkings.each do |p| %>
+
+    <div class="row pb-5">
+
+      <div class="col-md-6">
+        <div class="">
+          <div class="map" id="map_<%= p.id %>"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-4">
+          <%= link_to p.parking_name, parking_path(p.id)%>
+        </div>
+
+        <div class="mb-4">
+          <%= p.address %>
+        </div>
+
+        <div class="mb-4">
+          <%= p.regular_holiday %>
+        </div>
+
+        <div class="mb-4">
+          <%= p.fee %>
+        </div>
+
+        <div class="">
+          <% if p.favorited_by?(current_user) %>
+            <%= link_to parking_favorites_path(p), method: :delete do %>
+            <i class="fas fa-heart"></i>
             <% end %>
-          }
-        </script>
-
-    <h1><%= params[:prefecture] %>のパーキング一覧</h1>
-
-    <%= search_form_for @search, url: parkings_path do |f| %>
-  <%= f.search_field :parking_name_or_address_or_regular_holiday_or_fee_cont %>
-  <%= f.submit '検索' %>
-<% end %>
-
-
-  <% @parkings.each do |p| %>
-
-  <div class="row mb-4">
-    <div class="col-md-6">
-      <div class="">
-        <div class="map" id="map_<%= p.id %>"></div>
-
+          <% else %>
+            <%= link_to parking_favorites_path(p), method: :post do %>
+            <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
+
     </div>
 
-    <div class="col-md-6">
-      <div class="mb-4">
-        <%= p.parking_name %>
-      </div>
+    <% end %>
 
-      <div class="mb-4">
-        <%= p.address %>
-      </div>
-
-      <div class="mb-4">
-        <%= p.regular_holiday %>
-      </div>
-
-      <div class="mb-4">
-        <%= p.fee %>
-      </div>
-
-      <div class="">
-        <% if p.favorited_by?(current_user) %>
-          <%= link_to parking_favorites_path(p), method: :delete do %>
-          <i class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to parking_favorites_path(p), method: :post do %>
-          <i class="far fa-heart"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
   </div>
+</div>
 
-<% end %>
 
 　　　　 <style>
         .map{

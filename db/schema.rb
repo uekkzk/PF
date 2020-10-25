@@ -52,11 +52,14 @@ ActiveRecord::Schema.define(version: 2020_10_14_060148) do
     t.string "parking_name", null: false
     t.string "address", null: false
     t.string "regular_holiday", null: false
-    t.integer "fee", null: false
-    t.string "image_id"
+    t.string "fee", null: false
     t.integer "prefecture", default: 0, null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "tel"
+    t.string "time"
+    t.string "restriction"
+    t.string "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_10_14_060148) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "bike_name"
-    t.boolean "is_active", default: true
     t.string "name", null: false
     t.string "introduction"
     t.string "image_id"

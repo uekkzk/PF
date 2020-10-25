@@ -1,53 +1,56 @@
+<div class="user-container">
 
-<%= form_for @user do |f| %>
+  <div class="container mt-5">
 
-<div class="container">
+  <%= form_for @user do |f| %>
 
-<div class = "row mt-4 mb-4">
-  <div class = "col-md-3">
-    <%= f.label "画像" %>
+  <div class = "row mt-4 mb-4">
+    <div class = "col-md-2 offset-md-3 mt-4 user-edit-field">
+      <%= f.label "画像" %>
+    </div>
+    <div class = "col-md-4">
+  　　　<%= f.attachment_field :image, format: 'jpeg', size: "300x300", fallback: "no_image.jpg"%>
+    </div>
   </div>
-  <div class = "col-md-4">
-　　　<%= f.attachment_field :image, format: 'jpeg', size: "300x300", fallback: "no_image.jpg"%>
+
+  <div class = "row mb-4">
+    <div class = "col-md-2 offset-md-3 mt-2 user-edit-field">
+      <%= f.label "名前" %>
+    </div>
+    <div class = "col-md-4">
+      <%= f.text_field :name %>
+    </div>
   </div>
+
+  <div class = "row mb-4">
+    <div class = "col-md-2 offset-md-3 mt-2 user-edit-field">
+      <%= f.label "乗っているバイク" %>
+    </div>
+    <div class = "col-md-4">
+      <%= f.text_field :bike_name %>
+    </div>
+  </div>
+
+  <div class = "row mb-4">
+    <div class = "col-md-2 offset-md-3 mt-2 user-edit-field">
+      <%= f.label "ひとこと" %>
+    </div>
+    <div class = "col-md-4">
+      <%= f.text_field :introduction %>
+    </div>
+  </div>
+
+  <div class = "row mt-4">
+    <div class = "offset-md-5">
+      <%= f.submit "編集内容を保存する" %>
+    </div>
+  </div>
+
+  <div class = "offset-md-10 unsubscribe">
+    <%= link_to '退会する', users_unsubscribe_path, class: "px-4 btn btn-danger" %>
+  </div>
+
+  <% end %>
+  </div>
+
 </div>
-
-<div class = "row mb-4">
-  <div class = "col-md-3">
-    <%= f.label "名前" %>
-  </div>
-  <div class = "col-md-4">
-    <%= f.text_field :name %>
-  </div>
-</div>
-
-<div class = "row mb-4">
-  <div class = "col-md-3">
-    <%= f.label "乗っているバイク" %>
-  </div>
-  <div class = "col-md-4">
-    <%= f.text_field :bike_name %>
-  </div>
-</div>
-
-<div class = "row mb-4">
-  <div class = "col-md-3">
-    <%= f.label "ひとこと" %>
-  </div>
-  <div class = "col-md-4">
-    <%= f.text_field :introduction %>
-  </div>
-</div>
-</div>
-
-<div class = "row mb-4">
-  <div class = "offset-md-3">
-    <%= f.submit "編集内容を保存する", class: "px-5 btn btn-info" %>
-  </div>
-</div>
-
-<div class = "offset-md-4">
-  <%= link_to '退会する', users_unsubscribe_path, class: "px-4 btn btn-danger" %>
-</div>
-
-<% end %>
