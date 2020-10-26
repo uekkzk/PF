@@ -6,6 +6,11 @@
 
         <div class="col-md-6">
           <div class="map" id="map_id"></div>
+          <div class="row mt-5">
+            <div class="col-md-12">
+              投稿者:　<%= link_to @parking.user.name, user_path(@parking.user)%>
+            </div>
+          </div>
         </div>
 
 

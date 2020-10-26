@@ -1,8 +1,9 @@
 
 <% if @favorites.empty? %>
-    <div class="favorite-empty" style="background-color: lightyellow">
+    <div class="favorite-empty">
       <h1>お気に入りはありません</h1>
     </div>
+
 <% else%>
   <div class="favorite-container" style="background-color: lightyellow">
     <div class="container">
@@ -62,9 +63,10 @@
     </div>
 
     <% end%>
-  <% end %>
+
+    </div>
   </div>
-</div>
+<% end %>
 
 　<style>
     .map{

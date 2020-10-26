@@ -1,3 +1,18 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow-container{
+  background-image: image-url("bike2.jpg");
+  background-color:rgba(255,255,255,0.9);
+  background-blend-mode:lighten;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  height: 100%;
+}
+
+.follow-border{
+  border-top: 1px dotted;
+  border-bottom: 1px dotted;
+}
