@@ -5,7 +5,7 @@
     </div>
 
 <% else%>
-  <div class="favorite-container" style="background-color: lightyellow">
+  <div class="favorite-container　clearfix" style="background-color: lightyellow">
     <div class="container">
       <script>
         function initMap(){
@@ -48,16 +48,8 @@
           <%= f.fee %>
         </div>
 
-        <div class="">
-          <% if f.favorited_by?(current_user) %>
-            <%= link_to parking_favorites_path(f), method: :delete do %>
-            <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to parking_favorites_path(f), method: :post do %>
-            <i class="far fa-heart"></i>
-            <% end %>
-          <% end %>
+        <div id="favorite_button_<%= f.id %>">
+          <%= render partial: 'favorites/favorite', locals: { p: f} %>
         </div>
       </div>
     </div>

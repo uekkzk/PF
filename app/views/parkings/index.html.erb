@@ -13,7 +13,6 @@
                   center: {lat: <%=p.latitude%>, lng: <%=p.longitude%>},
                   zoom: 15
                 });
-
               <% end %>
             }
           </script>
@@ -51,16 +50,8 @@
           <%= p.fee %>
         </div>
 
-        <div class="">
-          <% if p.favorited_by?(current_user) %>
-            <%= link_to parking_favorites_path(p), method: :delete do %>
-            <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to parking_favorites_path(p), method: :post do %>
-            <i class="far fa-heart"></i>
-            <% end %>
-          <% end %>
+        <div id="favorite_button_<%= p.id %>">
+          <%= render partial: 'favorites/favorite', locals: { p: p} %>
         </div>
       </div>
 

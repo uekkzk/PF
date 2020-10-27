@@ -20,7 +20,7 @@ class Parking < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   validates :parking_name, :address, :regular_holiday, :fee, presence: true
-  validates :parking_name, :address , uniqueness: true
+  validates :address , uniqueness: true
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
