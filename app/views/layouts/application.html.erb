@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column" style="min-height: 100vh">
     <header class="navbar navbar-fixed-top" >
       <% if user_signed_in? %>
           <ul class="nav navbar-nav mr-auto">
@@ -24,7 +24,7 @@
               <%= link_to "検索", parkings_search_path %>
             </li>
             <li class = "nav-item mr-5">
-              <%= link_to "投稿", new_parking_path %>
+              <%= link_to "投稿", new_parking_path, data: {"turbolinks" => false} %>
             </li>
             <li class = "nav-item mr-5">
               <%= link_to "お気に入り", favorites_path %>
@@ -64,7 +64,7 @@
     <%= yield %>
 
 
-    <footer class="footer-text">
+    <footer class="footer-text mt-auto">
       © All Rights Reserved By ぴょんす
     </footer>
   </body>

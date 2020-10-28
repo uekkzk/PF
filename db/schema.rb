@@ -50,12 +50,13 @@ ActiveRecord::Schema.define(version: 2020_10_14_060148) do
   create_table "parkings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "parking_name", null: false
+    t.integer "postcode"
+    t.integer "prefecture_code", null: false
     t.string "address", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.string "regular_holiday", null: false
     t.string "fee", null: false
-    t.integer "prefecture", default: 0, null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "tel"
     t.string "time"
     t.string "restriction"

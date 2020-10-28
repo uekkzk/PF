@@ -16,6 +16,6 @@ User.create!(
 
 Parking.create!(
   [
-    {user_id: 1, parking_name: "ぴょんすパーキング", prefecture: 27, address: "通天閣", regular_holiday: "年中無休", fee: "3時間100円"}
+    {user_id: 1, parking_name: "ぴょんすパーキング", prefecture_code: 27, address: "通天閣", regular_holiday: "年中無休", fee: "3時間100円"}
   ]
 )

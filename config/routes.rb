@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :users, only: [:show, :edit, :update, :index] do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-   resource :relationships, only: [:create, :destroy]
+  resource :relationships, only: [:create, :destroy]
+    get 'following_user' => 'relationships#following_user'
+    get 'followed_user' => 'relationships#followed_user'
   end
-  get 'following_user' => 'relationships#following_user'
-  get 'followed_user' => 'relationships#followed_user'
-
 end

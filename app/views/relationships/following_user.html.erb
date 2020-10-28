@@ -2,12 +2,10 @@
 
 <div class="follow-container">
   <div class="container">
-    <% if @user.following_user.empty? %>
-      <div class="favorite-empty">
-        <h1>フォローしている人はいません</h1>
-      </div>
+    <% if @users.count < 1 %>
+        <h1 class="follow-empty">フォローしている人はいません</h1>
     <% else %>
-      <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+      <% @users.each do |user| %>
       <div class="row pt-5">
         <div class="col-md-3 follow-border">
           <div class="pt-1 pb-1">
@@ -19,7 +17,7 @@
         <div class="col-md-3 pt-5 follow-border">
           <%= user.name %>
         </div>
-        <div class="col-md-3 pt-5  follow-border">
+        <div class="col-md-3 pt-4 follow-border">
           <% if current_user.following?(user) %>
             <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete,class:"btn btn-danger"%>
           <% else %>

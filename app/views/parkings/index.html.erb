@@ -17,8 +17,8 @@
             }
           </script>
 
-  <% if params[:prefecture] %>
-      <h1 class="pt-5 pb-5"><%= params[:prefecture] %>のパーキング一覧</h1>
+  <% if params[:prefecture_code] %>
+      <h1 class="pt-5 pb-5"><%= Parking.new(prefecture_code: params[:prefecture_code]).prefecture.name %>のパーキング一覧</h1>
   <% else %>
       <h1 class="pt-5 mb-5"><%= params[:q][:parking_name_or_address_or_regular_holiday_or_fee_cont] %>の検索結果</h1>
   <% end %>

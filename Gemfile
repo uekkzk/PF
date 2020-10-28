@@ -83,3 +83,5 @@ end
 gem 'ransack'
 
 gem 'rails-i18n'
+
+gem 'jp_prefecture'

@@ -2,8 +2,8 @@ class ParkingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @parkings = if params[:prefecture]
-      Parking.where(prefecture: params[:prefecture])
+    @parkings = if params[:prefecture_code]
+      Parking.where(prefecture_code: params[:prefecture_code])
     else
     @search = Parking.ransack(params[:q])
     @parking = @search.result
@@ -18,6 +18,7 @@ class ParkingsController < ApplicationController
     @parking = Parking.new(parking_params)
     @parking.user_id = current_user.id
     if @parking.save
+      flash[:success] = "パーキングを投稿しました"
       redirect_to parkings_search_path
     else
       # if params[:prefecture] == 0
@@ -40,6 +41,7 @@ class ParkingsController < ApplicationController
     @parking.user_id = current_user.id
     @parking.update(parking_params)
     if @parking.save
+      flash[:success] = "パーキングを更新しました"
       redirect_to parking_path(@parking)
     else
       render :edit
@@ -57,6 +59,6 @@ class ParkingsController < ApplicationController
 
   private
   def parking_params
-    params.require(:parking).permit(:parking_name, :address, :regular_holiday, :fee, :image, :prefecture, :tel, :time, :restriction, :capacity, :postcode, :prefecture_name, :address_city, :address_street, :address_building)
+    params.require(:parking).permit(:postcode, :prefecture_code, :address, :parking_name, :regular_holiday, :fee, :tel, :time, :restriction, :capacity)
   end
 end

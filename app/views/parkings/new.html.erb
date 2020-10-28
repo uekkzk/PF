@@ -19,10 +19,19 @@
 
   <div class = "row mb-2">
     <div class = "col-md-2 offset-md-2">
+      <%= f.label "郵便番号", class:"parking-contents" %>
+    </div>
+    <div class = "col-md-6">
+      <%= f.text_field :postcode, placeholder: "ハイフンなし(住所自動入力)" %>
+    </div>
+  </div>
+
+  <div class = "row mb-2">
+    <div class = "col-md-2 offset-md-2">
       <%= f.label "都道府県", class:"parking-contents" %>
     </div>
     <div class = "col">
-      <%= f.select :prefecture, Parking.prefectures.keys %>
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
     </div>
   </div>
 

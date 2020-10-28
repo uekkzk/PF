@@ -1,7 +1,12 @@
 <div class="user-container">
+
+  <% if flash[:success] %>
+    <p><%= flash[:success] %></p>
+　<% end %>
+
   <div class="container">
 
-    <h1>マイページ</h1>
+    <h1><%= @user.name %>のマイページ</h1>
 
 
     <div class="row mt-5">
@@ -27,10 +32,10 @@
         </div>
         <div class="row mt-2">
           <div class="col-md-3 relationship">
-            <p>フォロー数: <%= link_to("#{@user.follower.count}", following_user_path) %></p>
+            <p>フォロー数: <%= link_to @user.follower.count, user_following_user_path(@user) %></p>
           </div>
           <div class="col-md-3 relationship">
-            <p>フォロワー数: <%= link_to("#{@user.followed.count}", followed_user_path) %></p>
+            <p>フォロワー数: <%= link_to @user.followed.count, user_followed_user_path(@user) %></p>
           </div>
           <div class="col-md-3">
             <% unless @user == current_user %>

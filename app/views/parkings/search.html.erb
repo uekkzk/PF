@@ -1,4 +1,9 @@
 <div class="search-container">
+
+  <% if flash[:success] %>
+    <p><%= flash[:success] %></p>
+　<% end %>
+
   <h1 class="mb-4">パーキング検索</h1>
 
   <%= search_form_for @search, url: parkings_path do |f| %>
@@ -14,13 +19,13 @@
 
   <map name="Map" class="map_image clearfix">
 
-  <area shape="rect" coords="273,329,294,410" href="/parkings?prefecture=三重県" alt="三重" />
-  <area shape="rect" coords="273,291,294,325" href="/parkings?prefecture=滋賀県" alt="滋賀" />
-  <area shape="poly" coords="224,268,224,323,267,324,267,292,244,292,243,268,243,268" href="/parkings?prefecture=京都府" alt="京都" />
-  <area shape="rect" coords="223,328,246,369" href="/parkings?prefecture=大阪府" alt="大阪" />
-  <area shape="rect" coords="199,267,222,337" href="/parkings?prefecture=兵庫県" alt="兵庫" />
-  <area shape="rect" coords="249,328,270,386" href="/parkings?prefecture=奈良県" alt="奈良" />
-  <area shape="poly" coords="225,372,225,409,268,409,268,390,244,390,243,372,242,372,242,372" href="/parkings?prefecture=和歌山県" alt="和歌山" />
+  <area shape="rect" coords="273,329,294,410" href="/parkings?prefecture_code=24" alt="三重" />
+  <area shape="rect" coords="273,291,294,325" href="/parkings?prefecture_code=25" alt="滋賀" />
+  <area shape="poly" coords="224,268,224,323,267,324,267,292,244,292,243,268,243,268" href="/parkings?prefecture_code=26" alt="京都" />
+  <area shape="rect" coords="223,328,246,369" href="/parkings?prefecture_code=27" alt="大阪" />
+  <area shape="rect" coords="199,267,222,337" href="/parkings?prefecture_code=28" alt="兵庫" />
+  <area shape="rect" coords="249,328,270,386" href="/parkings?prefecture_code=29" alt="奈良" />
+  <area shape="poly" coords="225,372,225,409,268,409,268,390,244,390,243,372,242,372,242,372" href="/parkings?prefecture_code=30" alt="和歌山" />
 
   </map>
 
