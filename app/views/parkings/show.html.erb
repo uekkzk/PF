@@ -59,6 +59,9 @@
             <%= link_to "編集", edit_parking_path(@parking), class:"btn btn-success" %>
           </div>
 
+<div class="parking-edit float-right">
+            <%= link_to "削除", parking_path(@parking), method: :delete, class:"btn btn-danger" %>
+          </div>
         </div>
 
     </div>

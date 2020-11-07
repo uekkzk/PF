@@ -49,6 +49,9 @@ class ParkingsController < ApplicationController
   end
 
   def destroy
+    @parking = Parking.find(params[:id])
+    @parking.destroy
+    redirect_to parkings_search_path
   end
 
   def search

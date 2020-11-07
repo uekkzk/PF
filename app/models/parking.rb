@@ -1,6 +1,6 @@
 class Parking < ApplicationRecord
   belongs_to :user
-  attachment :image
+
   has_many :favorites, dependent: :destroy
 
   # enum prefecture:{

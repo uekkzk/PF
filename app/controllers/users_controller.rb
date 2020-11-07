@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.score = Language.get_data(user_params[:introduction])
     @user.update(user_params)
-    @user.save
     flash[:success] = "プロフィールを更新しました"
     redirect_to user_path(@user)
   end

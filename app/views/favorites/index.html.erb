@@ -3,7 +3,7 @@
       <h1 class="favorite-empty cleaefix">お気に入りはありません</h1>
 
 <% else%>
-  <div class="favorite-container　clearfix" style="background-color: lightyellow">
+  <div class="favorite-container clearfix pb-5" style="background-color: lightyellow">
     <div class="container">
       <script>
         function initMap(){
@@ -58,12 +58,12 @@
   </div>
 <% end %>
 
-　<style>
+ <style>
     .map{
       height: 300px;
       width: 500px;
     }
-  </style>
+ </style>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
    </script>
